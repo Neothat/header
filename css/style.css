@@ -1,0 +1,417 @@
+/*  */
+@font-face {
+    font-family: 'rs24_fonts';
+    src: url('../fonts/rs24_fonts.eot?7e4mcm');
+    src: url('../fonts/rs24_fonts.eot?7e4mcm#iefix') format('embedded-opentype'),
+        url('../fonts/rs24_fonts.ttf?7e4mcm') format('truetype'),
+        url('../fonts/rs24_fonts.woff?7e4mcm') format('woff'),
+        url('../fonts/rs24_fonts.svg?7e4mcm#rs24_fonts') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background: lightskyblue;
+}
+
+.wrapper {
+    margin: 0 264px;
+}
+/*  */
+
+/* Common */
+.top-header {
+    margin: 16px 0;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.top-header .icon {
+    font-family: "rs24_fonts";
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    transition: all 0.5s ease;
+}
+
+.top-header .icon-colored {
+    color: #3B62A4;
+}
+
+.top-header ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.top-header .back-icon {
+    display: inline-block;
+    transform: rotate(90deg);
+    color: #667085;
+    margin-right: 8px;
+    font-weight: bold;
+}
+
+.top-header .title-back-button {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #D0D5DD;
+    padding: 16px 20px;
+    position: relative;
+    cursor: pointer;
+}
+
+.top-header .title-text {
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    color: #101828;
+}
+/* Common */
+
+/* Search input */
+.search-input {
+    background: #FFFFFF;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #D0D5DD;
+    display: flex;
+    align-items: center;
+    padding-right: 12px;
+    position: relative;
+    transition: all 0.5s ease;
+    flex-grow: 1;
+    max-width: 890px;
+}
+
+.search-input.expanded {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    transition: all 0.5s ease;
+}
+
+.search-input input {
+    height: 40px;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 8px 8px 12px;
+    font-size: 16px;
+    flex-grow: 1;
+}
+
+::placeholder {
+    font-family: Inter;
+    color: #667085;
+    font-size: 16px;
+}
+
+.search-input button {
+    margin: 0 4px;
+    text-align: center;
+    font-size: 16px;
+    color: #98A2B3;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-input .clear-button {
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.5s ease;
+}
+
+.search-input .clear-button.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+/* Search input */
+
+/* Suggestions */
+.search-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: calc(100% + 2px);
+    margin-left: -1px;
+    background-color: #FFFFFF;
+    border: 1px solid #D0D5DD;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    z-index: 10;
+    overflow-y: auto;
+    opacity: 0;
+    max-height: 0;
+    transition: all 0.5s ease;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.search-input.expanded .search-suggestions {
+    opacity: 1;
+    max-height: 609px
+}
+
+.search-suggestions li {
+    font-family: Inter;
+    font-size: 16px;
+    color: #475467;
+    font-weight: 400;
+    padding: 8px 12px;
+    margin: 2px 4px;
+    cursor: pointer;
+    border-radius: 9px;
+}
+
+.search-suggestions li.rubric {
+    font-weight: 500;
+    color: #101828;
+    background-color: transparent;
+    cursor: default;
+}
+
+.search-suggestions li:hover {
+    background-color: #F9FAFB;
+}
+
+.search-suggestions li.rubric:hover {
+    background-color: transparent;
+}
+/* Suggestions */
+
+/* Scrollbar Styles */
+.search-suggestions::-webkit-scrollbar,
+.regions-list::-webkit-scrollbar,
+.cities-list::-webkit-scrollbar {
+    width: 14px;
+}
+
+.search-suggestions::-webkit-scrollbar-track,
+.regions-list::-webkit-scrollbar-track,
+.cities-list::-webkit-scrollbar-track {
+    border-radius: 6px;
+}
+
+.search-suggestions::-webkit-scrollbar-thumb,
+.regions-list::-webkit-scrollbar-thumb,
+.cities-list::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    background-color: #E2E8F1;
+    border: 3px solid #FFFFFF;
+}
+/* Scrollbar Styles */
+
+/* Cart button */
+.cart-button {
+    background-color: #3B62A4;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    height: 40px;
+    padding: 0 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.cart-button .icon {
+    font-weight: 600;
+    margin-right: 4px;
+}
+
+.cart-button .cart-button-text {
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+}
+/* Cart button */
+
+/* City picker */
+.city-picker-button {
+    background-color: transparent;
+    color: #475467;
+    border: none;
+    border-radius: 8px;
+    height: 40px;
+    padding: 0 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.city-picker-button .icon {
+    font-weight: 600;
+    margin-left: 4px;
+}
+
+.city-picker-button {
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+}
+
+.city-picker-button:hover,
+.city-picker-button.active {
+    background-color: #F2F4F7;
+}
+/* City picker */
+
+/* Location selection blocks */
+.regions-block,
+.countries-block,
+.cities-block {
+    width: 375px;
+    height: 368px;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+    top: calc(100% + 10px);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 100;
+    transition: opacity 0.3s ease;
+}
+
+.countries-block.active,
+.cities-block.active {
+    z-index: 200;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.regions-block.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.city-selection-wrapper {
+    margin-left: auto;
+    position: relative;
+}
+/* Location selection blocks */
+
+/* Search city input */
+.search-city-input {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #D0D5DD;
+    padding: 16px 20px;
+    position: relative;
+}
+
+.search-city-input .icon {
+    color: #98A2B3;
+}
+
+.search-city-input .search-icon {
+    font-size: 15px;
+    color: #667085;
+    margin-right: 8px;
+}
+
+.search-city-input input {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    color: #101828;
+}
+
+.search-city-input .clear-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #98A2B3;
+}
+/* Search city input */
+
+/* Country selection */
+.country-display {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    border-bottom: 1px solid #D0D5DD;
+    cursor: pointer;
+}
+
+.country-display img.country-flag {
+    width: 24px;
+    height: 24px;
+}
+
+.country-display span {
+    color: #667085;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: Inter;
+}
+
+.country-display .country-name {
+    font-weight: 500;
+    color: #204C97;
+}
+/* Country selection */
+
+/* Lists */
+.regions-list,
+.countries-list,
+.cities-list {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-bottom: 5px;
+}
+
+.regions-list li,
+.countries-list li,
+.cities-block li {
+    font-family: Inter;
+    padding: 12px 16px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #475467;
+    cursor: pointer;
+}
+
+.countries-list li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.regions-list li:hover,
+.countries-list li:hover,
+.cities-block li:hover,
+.country-display:hover {
+    background-color: #F2F4F7;
+}
+/* Lists */
